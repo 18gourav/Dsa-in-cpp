@@ -1,3 +1,9 @@
+// timecomplexity:
+//  best case: O(n^2)
+//  worst case: O(n^2)
+// use case- when the size of the array is small try to implement selection sort
+// space complexity = O(1)
+
 #include <bits/stdc++.h> 
 void selectionSort(vector<int>& arr, int n)
 {   

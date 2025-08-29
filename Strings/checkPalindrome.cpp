@@ -1,12 +1,26 @@
 #include<iostream>
 using namespace std;
 
+// isma hum logo ne 
+char toLowerCase(char ch){
+    if(ch>='a' && ch<='z'){
+        return ch;
+    }
+    else {
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+
 bool checkPalindrome(char ch[], int n) {
+    // iss vala ko ham 2 pointer approach se 
+    // noon--> ye jaise palindrome ha to isma first last same, 2nd last and first same
+    // while loop lagake hamna check karliya
           int start = 0;
           int end = n-1;
 
           while(start<=end){
-            if(ch[start] == ch[end]){
+            if(toLowerCase(ch[start]) == toLowerCase(ch[end])){
                 start++;
                 end--;
             }
@@ -39,7 +53,6 @@ int main() {
         cout<<"This is not a palindrome!";
 
     }
-
 
     return 0;
 }

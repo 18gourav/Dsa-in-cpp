@@ -14,7 +14,35 @@ int main() {
     cout<<&num<<endl;
 
     //*ptr this is called the pointer which store the address of the num
+    //*ptr also means insert value in ptr
     int *ptr = &num;
+
+    //in this we get output - 5
+    //how?-- *ptr means value in ptr--> which is 100--> 100 refers to num-->which is 5
+    cout<< *ptr;
+
+    //we created a *pt which is pointing toward a int value has some grabage value
+    //this is meant to be a bad practice cuz we are pointing a no which does not exist
+    // int *pt;
+
+    int i = 8;
+    int *p = 0;
+    //we can also declare pointer after writing it null
+    p = &i;
+
+    cout<<p<<endl;
+    cout<<*p;
+    //let assume address of i is 200
+    //we think its asn would be 201, but its not
+    //int has 4 bits stored so it is --> 204
+    p = p + 1;
+    
+
+    //copying of pointer
+    int *q = p;
+    //output will be 8
+    cout<<*q;
+    
 
     return 0;
 }

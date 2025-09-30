@@ -26,8 +26,8 @@ int main() {
    //even if we write it also like--> i[arr] = *(i + arr)
 
    int i = 2;
-   //basicall means arr[2]
    cout<<i[arr]<<endl;
+   //basicall means arr[2]
 
    int temp[10];
 

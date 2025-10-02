@@ -11,7 +11,7 @@ void sayDigit(int n,string arr[]){
 
    sayDigit(n,arr);
    
-cout<<arr[digit]<<" ";
+   cout<<arr[digit]<<" ";
 }
 
 int main() {

@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// ye vali approach galat ha kyuki ye bs array ko reverse ma print karta ha, na ki actually reverse karta ga
+// ye vali approach galat ha kyuki ye bs array ko reverse ma print karta ha, na ki actually reverse karta ha
 // void ReverseArray(int arr[],int n) {
 
 //     for(int i=n-1; i>=0 ; i--) {
@@ -10,13 +10,13 @@ using namespace std;
 
 //ye vali approach sahi ha kyuki ye main memory ma bhi array ko reverse kar rahi ha
 void ReverseArray(int arr[], int n){
-    int start = 0;
-    int end = n-1;
+    int s = 0;
+    int e = n-1;
 
-    while(start <= end) {
-        swap(arr[start], arr[end]);
-        start++;
-        end--;
+    while(s <= e) {
+        swap(arr[s], arr[e]);
+        s++;
+        e--;
     }
 }
 

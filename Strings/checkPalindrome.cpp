@@ -3,32 +3,35 @@ using namespace std;
 
 // isma hum logo ne 
 char toLowerCase(char ch){
+
     if(ch>='a' && ch<='z'){
         return ch;
     }
-    else {
-        char temp = ch - 'A' + 'a';
-        return temp;
+
+    else{
+        return (ch - 'A' + 'a');
     }
+    
 }
 
 bool checkPalindrome(char ch[], int n) {
-    // iss vala ko ham 2 pointer approach se 
-    // noon--> ye jaise palindrome ha to isma first last same, 2nd last and first same
+    // iss vala ko ham 2 pointer approach se karenge
+    // noon --> ye jaise palindrome ha to isma (first and last same), (2nd last and 2nd first same)
     // while loop lagake hamna check karliya
-          int start = 0;
-          int end = n-1;
+        int s = 0;
+        int e = n-1;
 
-          while(start<=end){
-            if(toLowerCase(ch[start]) == toLowerCase(ch[end])){
-                start++;
-                end--;
+        while(s<=e){
+            if(toLowerCase(ch[s]) == toLowerCase(ch[e])){
+                s++;
+                e--;
             }
             else{
                 return false;
             }
-          }
-          return true;
+        }
+
+        return true;
 }
 
 int lenOfstring(char str[]) {

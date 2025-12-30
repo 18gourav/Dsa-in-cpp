@@ -9,8 +9,8 @@ char toLowerCase(char ch){
         return ch;
     }
     else {
-        // iss formula ma hum log basically ASCII values ke sath khel raha ha
-    // Asan tarika samajhna ka --> Uppercase ma sa uppercase hatado or lowercase jod do to wo lowercase ban jayega 
+// iss formula ma hum log basically ASCII values ke sath khel raha ha
+// Asan tarika samajhna ka --> Uppercase ma sa uppercase hatado or lowercase jod do to wo lowercase ban jayega 
         char temp = ch - 'A' + 'a';
         return temp;
     }

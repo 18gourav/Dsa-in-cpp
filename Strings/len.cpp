@@ -8,12 +8,13 @@ using namespace std;
 //in this program we are going to print len of char array
 
 int lenOfstring(char str[]) {
-        int count = 0;
-        for(int i=0; str[i]!='\0'; i++){
-            count++;
-        }
+    int len = 0;
 
-        return count;
+    for(int i=0; str[i] != '\0'; i++){
+        len++;
+    }
+
+    return len;
 }
 
 int main() {

@@ -5,7 +5,7 @@
 #include <bits/stdc++.h> 
 //iss vala part ma hum log basically jo bhi uppercase letter ha usko lower case ma kar de raha ha
 char toLowerCase(char ch){
-    if(ch>='a' && ch<='z'){
+    if((ch>='a' && ch<='z') || (ch>='0' && ch<='9')){
         return ch;
     }
     else {

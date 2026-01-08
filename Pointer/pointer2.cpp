@@ -21,7 +21,7 @@ int main() {
    //output --> 3
    cout<< "5th " << *arr + 1<<endl;
 
-   cout<<*(arr+2)<<endl;
+   cout<<*(arr+1)<<endl;
    //in general we make a formula --> arr[i] = *(arr + i)
    //even if we write it also like--> i[arr] = *(i + arr)
 

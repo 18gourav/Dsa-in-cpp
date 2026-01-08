@@ -8,7 +8,7 @@ using namespace std;
 
 //synatx of declaring inline var
 inline int getNo(int& a,int& b){
-    return (a<b)? a:b;
+    return (a>b) a : b;
 }
 
 int main() {

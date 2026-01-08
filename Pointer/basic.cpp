@@ -18,7 +18,7 @@ int main() {
     int *ptr = &num;
 
     //in this we get output - 5
-    //how?-- *ptr means value in ptr--> which is 100--> 100 refers to num-->which is 5
+    //how?-- *ptr means value in ptr --> which is 100--> 100 refers to num-->which is 5
     cout<< *ptr;
 
     //we created a *pt which is pointing toward a int value has some grabage value
@@ -33,7 +33,8 @@ int main() {
     cout<<p<<endl;
     cout<<*p;
     //let assume address of i is 200
-    //we think its asn would be 201, but its not
+    
+    //we think its ans would be 201, but its not
     //int has 4 bits stored so it is --> 204
     p = p + 1;
     

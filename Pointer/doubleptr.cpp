@@ -17,6 +17,7 @@ int main() {
 
     int i = 5;
     int *ptr = &i;
+    
     // this is called double pointer - which means pointing to a pointer
     int **pt = &ptr;
 

@@ -9,7 +9,7 @@ int main() {
     //now when we declare size of array like 50 --> program says to compiler that bring a stack for arr[50]
     int arr[50];
 
-    //now in this case --> compiler give a stack memory to program --> now 2 cases arise:
+    //now in the case shown below --> compiler give a stack memory to program --> now 2 cases arise:
     //case 1: if input taken is < stack memory --> code will run;
     //case 2: if input taken is > stack memory --> code will crash
     //allocating memory through stack is called 'static memory allocation'

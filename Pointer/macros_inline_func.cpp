@@ -27,7 +27,7 @@ int main() {
 
     //inline func
     int a = 2,b = 3;
-    int ans = getNo(a,b);;
+    int ans = getNo(a,b);
 
     // if(a<b){
     //     ans = a;

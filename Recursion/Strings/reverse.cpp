@@ -14,7 +14,7 @@ void reverseStr(char str[],int i, int j){
 
 int main() {
 
-   char str[20] = {'f','a','b','a','r'};
+   char str[20] = {'f','g','b','a','r'};
 
    reverseStr(str,0,4);
 

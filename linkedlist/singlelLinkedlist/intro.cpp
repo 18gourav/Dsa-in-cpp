@@ -21,6 +21,15 @@ class Node {
         this -> data = data;
         this -> next = NULL;
     }
+
+    ~Node() {
+        int value = this->data;
+        if(this->next!= NULL){
+            delete next;
+            this ->next = NULL;
+        }
+        cout <<"the memory is free for node contain data "<<value<<endl;
+    }
 };
 
 void insertAtHead(Node* &Head,int d){
@@ -35,7 +44,8 @@ void insertAtTail(Node* &Tail,int d){
     Tail = first;
 }
 
-void insertAtMid(Node* &Head,int d,int posn){
+void insertAtMid(Node* &Tail,Node* &Head,int d,int posn){
+    //inserting at first position
     if(posn == 1){
         insertAtHead(Head,d);
         return;
@@ -48,9 +58,40 @@ void insertAtMid(Node* &Head,int d,int posn){
         cnt++;
     }
 
+    //inserting at last position
+    if(temp ->next==NULL){
+        insertAtTail(Tail,d);
+        return ;
+    }
+
     Node * NodeToinsert = new Node(d);
     NodeToinsert->next = temp->next;
     temp->next = NodeToinsert;
+}
+
+void DeleteNode(Node *&Head,int posn){
+    //deleting the 1st node
+    if(posn == 1){
+        Node *temp = Head;
+        Head = Head->next;
+        temp->next=NULL;
+        delete temp;
+    }
+    //deleting the middle and last node
+    else {
+        Node *curent = Head;
+        Node *prev = NULL;
+        int cnt = 1;
+
+        while(cnt <posn){
+            prev = curent;
+            curent = curent->next;
+            cnt++;
+        }
+        prev->next = curent->next;
+        curent->next = NULL;
+        delete curent;
+    }
 }
 
 void printLL(Node * Head){
@@ -80,8 +121,13 @@ int main() {
     insertAtTail(Tail,13);
     printLL(Head);
 
-    insertAtMid(Head,15,1);
+    insertAtMid(Tail,Head,15,1);
+    printLL(Head);
+
+    insertAtMid(Tail,Head,22,5);
+    printLL(Head);
+
+    DeleteNode(Head,5);
     printLL(Head);
 
 }
-

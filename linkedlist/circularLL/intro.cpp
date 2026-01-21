@@ -27,18 +27,18 @@ class Node {
         int value = this->data;
         if(this->next!=NULL){
             delete next;
-            next=NULL:
+            next=NULL;
         }
-        cout<<"memory free for node with data "<<value;
+        cout<<"memory free for node with data "<<value<<endl;
     }
-}
+};
 
 void insertElem(Node* &Tail,int elem,int d){
     
     //empty list
     if(Tail==NULL){
         Node * newNode = new Node(d);
-        tail = newNode;
+        Tail = newNode;
         newNode->next=newNode;
     }
     else{
@@ -56,4 +56,77 @@ void insertElem(Node* &Tail,int elem,int d){
         Node1->next=curr->next;
         curr->next=Node1;
     }
+}
+
+void print(Node* &Tail){
+    Node* temp = Tail;
+
+    if(Tail == NULL){
+        cout<<"list is empty"<<endl;
+        return ;
+    }
+
+   do
+   {
+    cout<<temp->data<<" ";
+    temp = temp->next;
+   } while (temp!=Tail);
+
+   cout<<endl;
+   
+}
+
+void deleteElem(Node * &Tail,int value){
+
+    if(Tail == NULL){
+        cout<<"try again"<<endl;
+        return ;
+    }
+
+    else{
+        Node* prev = Tail;
+        Node* curr = prev->next;
+
+        while(curr->data!=value){
+            prev = curr;
+            curr=curr->next;
+        }
+        if(curr == prev){
+            Tail = NULL;
+        }
+
+        else if(Tail == curr){
+            Tail = prev;
+        }
+
+        prev->next=curr->next;
+        curr->next=NULL;
+        delete curr;
+        
+    }
+}
+
+int main(){
+    Node* Tail = NULL;
+
+    insertElem(Tail,5,3);
+    print(Tail);
+
+    insertElem(Tail,3,5);
+    print(Tail);
+
+    insertElem(Tail,5,8);
+    print(Tail);
+
+    insertElem(Tail,5,7);
+    print(Tail);
+
+    insertElem(Tail,8,9);
+    insertElem(Tail,3,4);
+    print(Tail);
+
+    deleteElem(Tail,3);
+    print(Tail);
+
+    return 0;
 }

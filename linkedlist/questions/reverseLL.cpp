@@ -33,9 +33,32 @@ LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head)
     while(curr != NULL){
         forward = curr->next;
         curr->next = prev;
-        prev = curr;
+        prev = cfurr;
         curr=forward;
     }
 
     return prev;
+}
+//the above one is the brute force approach
+
+
+//the below one is based on same approach but recursively
+void reverse(LinkedListNode<int>* &head,LinkedListNode<int>* curr,LinkedListNode<int>* prev){
+    //base case
+    if(curr == NULL){
+        head = prev;
+        return ;
+    }
+
+    LinkedListNode<int> *forward = curr->next;
+    reverse(head,forward,curr);
+    curr->next=prev;
+}
+
+LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
+{
+    LinkedListNode<int>* prev = NULL;
+    LinkedListNode<int>* curr = head;
+    reverse(head,curr,prev);
+    return head;
 }

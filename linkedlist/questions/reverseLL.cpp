@@ -12,7 +12,7 @@ LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head)
     while(curr != NULL){
         forward = curr->next;
         curr->next = prev;
-        prev = cfurr;
+        prev = curr;
         curr=forward;
     }
 

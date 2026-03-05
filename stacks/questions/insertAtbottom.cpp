@@ -1,3 +1,4 @@
+//this is the solution which i think on my own
 #include <bits/stdc++.h> 
 stack<int> pushAtBottom(stack<int>& myStack, int x) 
 {

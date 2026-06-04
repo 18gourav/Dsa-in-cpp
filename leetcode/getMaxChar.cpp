@@ -14,7 +14,7 @@ char getMaxCharacter(string s){
 
         int num = 0;
         // or fir jo bhi char hoga uski value ma sa a ko subtract karke usi alpahbet ke no ma count++ kardenge jisse
-        //harno ka count mil jayega
+        //har no ka count mil jayega
         num = ch - 'a';
         arr[num]++;
     }

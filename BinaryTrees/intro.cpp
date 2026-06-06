@@ -21,8 +21,8 @@ class node {
 
     node(int data){
         this->data = data;
-        this->left = left;
-        this->right = right;
+        this->left = NULL;
+        this->right = NULL;
     }
 };
 
@@ -58,7 +58,6 @@ void levelOrderTraversal(node* root){
 
     while(!q.empty()){
         node* temp = q.front();
-        cout<<temp->data<<endl;
         q.pop();
 
         if(temp == NULL){
@@ -69,12 +68,16 @@ void levelOrderTraversal(node* root){
             }
         }
         else{
-             if(temp->left){
-            q.push(temp->left);
-        }
-        if(temp->right){
-            q.push(temp->right);
-        }
+            cout<<temp->data<<" ";
+
+            if(temp->left){
+                q.push(temp->left);
+            }
+
+            if(temp->right){
+                q.push(temp->right);
+            }
+
         }
     }
 }
@@ -133,19 +136,58 @@ void postOrderTraversal(node* root){
     cout<<root->data<<endl;
 }
 
+void buildTreeFromLevelOrder(node* &root){
+    cout<<"enter the data for node: "<<endl;
+    int data;
+    cin>>data;
+
+    root = new node(data);
+
+    queue<node*> Q;
+    Q.push(root);
+
+    while(!Q.empty()){
+        node* temp = Q.front();
+        Q.pop();
+
+        //now left node
+        cout<<"Enter the value for left node of: "<<temp->data<<endl;
+        int leftData;
+        cin>>leftData;
+
+        if(leftData != -1){
+            temp->left = new node(leftData);
+            Q.push(temp->left);
+        }
+
+        //now right node
+        cout<<"Enter the value for right node of : "<<temp->data<<endl;
+        int rightData;
+        cin>>rightData;
+
+        if(rightData != -1){
+            temp->right = new node(rightData);
+            Q.push(temp->right);
+        }
+    }
+}
+
 int main() {
 
     node* root = NULL;
 
-    //create tree
-    root = buildTree(root);
-    //1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    buildTreeFromLevelOrder(root);
+    levelOrderTraversal(root);
 
-    //level order
-    // levelOrderTraversal(root);
+    // //create tree
+    // root = buildTree(root);
+    // //1 3 5 7 11 -1 17 -1 -1 -1 -1 -1 -1
 
-    //inorder traversal
-    postOrderTraversal(root);
+    // //level order
+    // // levelOrderTraversal(root);
+
+    // //inorder traversal
+    // postOrderTraversal(root);
     
 
     return 0; 

@@ -1,18 +1,4 @@
-/*
-Definition for Node
-class Node {
-  public:
-    int data;
-    Node* left;
-    Node* right;
-
-    Node(int val) {
-        data = val;
-        left = right = nullptr;
-    }
-};
-*/
-
+//This is the approach1
 class Solution {
     private:
     int height(Node* root){
@@ -48,5 +34,40 @@ class Solution {
         
         return false;
         
+    }
+};
+
+//this is the approach2
+class Solution {
+    
+  public:
+    pair<bool,int> isBalancedFast(Node* root){
+        if(root == NULL){
+            pair<bool,int> p = make_pair(true,0);
+            return p;
+        }
+        
+        pair<bool,int> left = isBalancedFast(root->left);
+        pair<bool,int> right =isBalancedFast(root->right);
+        
+        bool op1 = left.first;
+        bool op2 = right.first;
+        bool op3 = abs(left.second - right.second) <= 1;
+        
+        pair<bool,int> ans;
+        ans.second = max(left.second,right.second) + 1;
+        
+        if(op1 & op2 & op3){
+            ans.first = true;
+            return ans;
+        }
+        
+        ans.first = false;
+        return ans;
+    }
+    bool isBalanced(Node* root) {
+        // code here
+        
+        return isBalancedFast(root).first;
     }
 };

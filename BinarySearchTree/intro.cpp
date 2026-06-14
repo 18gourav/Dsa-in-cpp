@@ -131,10 +131,82 @@ void takeInput(node* &root){
     }
 }
 
+node* minValue(node* root){
+    node* temp = root;
+
+    while(temp->left != NULL){
+        temp = temp->left;
+    }
+
+    return temp;
+}
+
+node* maxValue(node* root){
+    node* temp = root;
+
+    while(temp->right != NULL){
+        temp = temp->right;
+    }
+
+    return temp;
+}
+
+node* deleteFromBst(node* root,int val){
+    //base case
+    if(root == NULL){
+        return root;
+    }
+
+    if(root->data == val){
+        //0 child
+        if(root->left == NULL && root->right == NULL){
+            delete root;
+            return NULL;
+        }
+
+        //1 child
+
+        //left child
+        if(root->left != NULL && root->right == NULL){
+            node* temp = root->left;
+            delete root;
+            return temp;
+        }
+
+        //right child
+        if(root->left == NULL && root->right != NULL){
+            node* temp = root->right;
+            delete root;
+            return temp;
+        }
+
+        //2 child
+        if(root->left != NULL && root->right != NULL){
+            node* temp = maxValue(root->left);
+            root->data = temp->data;
+            root->right = deleteFromBst(root->right,temp->data);
+            return root;
+        }
+    }
+    
+    if(val < root->data){
+        //left ma jao
+        root->left = deleteFromBst(root->left,val);
+        return root;
+    }
+
+    else{
+        //right ma jao
+        root->right = deleteFromBst(root->right,val);
+        return root;
+    }
+
+}
+
 int main(){
     node* root = NULL;
 
-    //10 8 21 7 27 5 4 3 -1
+    //50 20 70 10 30 90 110 -1 
 
     cout<<"Take input for bst"<<endl;
     takeInput(root);
@@ -142,12 +214,23 @@ int main(){
     cout<<"Printing the bst"<<endl;
     levelOrderTraversal(root);
 
-    cout<<"inorder traversal"<<endl;
-    inorderTraversal(root);
+    // cout<<"inorder traversal"<<endl;
+    // inorderTraversal(root);
 
-    cout<< "Pre order Traversal"<<endl;
-    preOrderTraversal(root);
+    // cout<< "Pre order Traversal"<<endl;
+    // preOrderTraversal(root);
 
-    cout<< "Post order traversal"<<endl;
-    postOrderTraversal(root);
+    // cout<< "Post order traversal"<<endl;
+    // postOrderTraversal(root);
+
+    cout<<"min val in bst "<<minValue(root)->data<<endl;
+
+    cout<<"min val in bst "<<maxValue(root)->data<<endl;
+
+    root = deleteFromBst(root,50);
+
+    cout<<"Printing the bst"<<endl;
+    levelOrderTraversal(root);
+
+
 }

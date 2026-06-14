@@ -1,6 +1,7 @@
 //What is Binary Search Tree? --> It is a type of tree in which for every node
 //                                Left Node Data should be less than root node data
 //                                Right Node Data should be greater than root node data
+//The inorder traversal will always be sorted for BST
 
 #include<iostream>
 #include<queue>
@@ -182,9 +183,9 @@ node* deleteFromBst(node* root,int val){
 
         //2 child
         if(root->left != NULL && root->right != NULL){
-            node* temp = maxValue(root->left);
-            root->data = temp->data;
-            root->right = deleteFromBst(root->right,temp->data);
+            int maxi = maxValue(root->left)->data;
+            root->data = maxi;
+            root->left = deleteFromBst(root->left,maxi);
             return root;
         }
     }
@@ -229,7 +230,7 @@ int main(){
 
     root = deleteFromBst(root,50);
 
-    cout<<"Printing the bst"<<endl;
+    cout<<"Printing the bst after deletion"<<endl;
     levelOrderTraversal(root);
 
 

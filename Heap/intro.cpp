@@ -77,11 +77,11 @@ class heap{
             int leftChild = 2 * index;
             int rightChild = 2 * index + 1;
 
-            if(leftChild < size &&  arr[index] < arr[leftChild]){
+            if(leftChild < size &&  arr[index] < arr[leftChild] &&  arr[leftChild]>arr[rightChild]){
                 swap(arr[leftChild],arr[index]);
                 index = leftChild;
             }
-            else if(rightChild < size &&  arr[index] < arr[rightChild]){
+            else if(rightChild < size &&  arr[index] < arr[rightChild] &&  arr[leftChild]<arr[rightChild]){
                 swap(arr[rightChild],arr[index]);
                 index = rightChild;
             }
@@ -90,6 +90,7 @@ class heap{
             }
         }
     }
+    //TC of deletion -> O(logn)         
     
 };
 

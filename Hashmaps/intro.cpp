@@ -18,11 +18,13 @@ int main(){
 
     //1st way:
     pair<string,int> pair1 = make_pair("babbar",2);
+    map.insert(pair1);
 
     //2nd way
     pair<string,int> pair2("love",1);
+    map.insert(pair2);
 
     //3rd way
     map["mera"] = 1;
-    
+
 }

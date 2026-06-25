@@ -27,4 +27,41 @@ int main(){
     //3rd way
     map["mera"] = 1;
 
+    //searching
+
+    //1st way
+    cout<<map["babbar"]<<endl;
+
+    //2nd way
+    cout<<map.at("mera")<<endl;
+
+    //now accesing thae key which is not in map
+    // cout<<map.at("UnknownKey")<<endl;
+    //now this will throw an error that it is out of range cuz we did not make any entry like this
+
+    //now this will note give error because this line will make this entry and set it as 0
+    cout<<map["UnknownKey"]<<endl;
+
+    //now this will also give 0
+    cout<<map.at("UnknownKey")<<endl;
+
+    cout<<map.size()<<endl;
+
+    cout<<map.count("bro")<<endl;;
+    //will give 0 cuz this key is not present
+
+    cout<<map.count("babbar")<<endl;
+    //will give 1 cuz this key is present
+
+    //erase->this will erase that key from map
+    map.erase("mera");
+
+    //now using ITERATOR to iterate map
+    unordered_map<string,int> :: iterator it = map.begin();
+
+    while(it != map.end()){
+        cout<<it->first<<" "<<it->second<<endl;
+        it++;
+    }
+
 }

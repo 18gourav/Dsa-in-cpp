@@ -1,8 +1,3 @@
-//It is a type of tree in which a parent has multiple child nodes
-
-#include<iostream>
-using namespace std;
-
 class TrieNode{
     public:
     char data;
@@ -18,16 +13,18 @@ class TrieNode{
     }
 };
 
-class Trie{
-    public:
 
-    //first we will create a root node
+class Trie {
+
+public:
     TrieNode* root;
 
-    Trie(){
+    /** Initialize your data structure here. */
+    Trie() {
         root = new TrieNode('\0');
     }
 
+    /** Inserts a word into the trie. */
     void insertUtil(TrieNode* root,string word){
         //base case->When we reach the end of the word, now we have to mark that node to terminal
         if(word.length() == 0){
@@ -51,13 +48,14 @@ class Trie{
         }
 
         //now recursion
-        insertUtil(child,word.substr(1));
+        insertUtil  (child,word.substr(1));
     }
 
-    void insert(string word){
+    void insert(string word) {
         insertUtil(root,word);
     }
 
+    /** Returns if the word is in the trie. */
     bool searchUtil(TrieNode* root,string word){
         //base case
         if(word.length() == 0){
@@ -82,15 +80,15 @@ class Trie{
         return searchUtil(child,word.substr(1));
     }
 
-    bool search(string word){
+    bool search(string word) {
         return searchUtil(root,word);
     }
 
-    void deleteUtil(TrieNode* root,string word){
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    bool prefixUtil(TrieNode* root,string word){
         //base case
         if(word.length() == 0){
-            root->isTerminal = false;
-            return ;
+            return true;
         }
 
         //index of word
@@ -98,31 +96,19 @@ class Trie{
         TrieNode* child;
 
         //char found
-        child = root->children[index];
+        if(root->children[index] != NULL){
+            //now move to next node
+            child = root->children[index];
+        }
+        //not found
+        else{
+            return false;
+        }
 
         //now recursion
-        return deleteUtil(child,word.substr(1));
+        return prefixUtil(child,word.substr(1));
     }
-
-    void deleteWord(string word){
-        deleteUtil(root,word);
+    bool startsWith(string prefix) {
+        return prefixUtil(root,prefix);
     }
 };
-
-//TC:
-//Insertion -> O(l)
-//Searching -> O(l)
-//Deletion -> O(l)
-//l -> length of word
-int main() {
-
-    Trie* t = new Trie();
-
-    t->insert("abc");
-    t->insert("time");
-    cout<<"this is present "<< t->search("time") <<endl;
-    t->deleteWord("time");
-    cout<<"this is present "<< t->search("time") <<endl;
-
-    return 0;
-}

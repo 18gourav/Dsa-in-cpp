@@ -17,7 +17,7 @@
 
 // Formula:
 // bucketIndex = hashCode % bucketSize
-//
+
 // Example:
 // hashCode = 96354
 // bucketSize = 10
@@ -26,11 +26,11 @@
 // ================= COLLISION =================
 // Collision occurs when two different keys
 // get mapped to the same bucket index.
-//
+
 // Example:
 // hash("abc") % 10 = 4
 // hash("xyz") % 10 = 4
-//
+
 // Collision Handling:
 // 1. Separate Chaining
 // 2. Open Addressing (Linear, Quadratic, Double Hashing)

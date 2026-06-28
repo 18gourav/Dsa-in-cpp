@@ -19,10 +19,10 @@ string path,vector<vector<bool>> &vis){
     }
 
     //4 movements
-    //D
-    //L
-    //R
-    //U
+    //D -> Down
+    //L ->Left
+    //R -> Right
+    //U -> Upper
     vis[x][y] = 1;
 
     //Down

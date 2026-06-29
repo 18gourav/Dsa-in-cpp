@@ -22,7 +22,7 @@ class Solution {
     }
     bool solve(vector<vector<char>>& board){
         int n = board[0].size();
-
+        //Process all matrix values
         for(int row=0; row<n; row++){
             for(int col =0; col<n; col++){
                 //now check if a place is filled and check fitting no bw 1 and 9
@@ -30,8 +30,7 @@ class Solution {
                     for(char val = '1'; val<='9'; val++){
                         if(isSafe(row,col,board,val)){
                             board[row][col] = val;
-                            bool isPossibleSol = solve(board);
-                            if(isPossibleSol){
+                            bool isPossibleSol = solve(board);                           if(isPossibleSol){
                                 return true;
                             }
                             else{

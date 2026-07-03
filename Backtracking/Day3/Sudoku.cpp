@@ -30,7 +30,8 @@ class Solution {
                     for(char val = '1'; val<='9'; val++){
                         if(isSafe(row,col,board,val)){
                             board[row][col] = val;
-                            bool isPossibleSol = solve(board);                           if(isPossibleSol){
+                            bool isPossibleSol = solve(board); 
+                            if(isPossibleSol){
                                 return true;
                             }
                             else{

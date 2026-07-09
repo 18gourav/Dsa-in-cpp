@@ -40,7 +40,25 @@ class graph{
         s.push(node);
     }
 
-    void getShortestPath(int src,stack<int> &topo,vector<int> &dist)
+    void getShortestPath(int src,stack<int> &topo,vector<int> &dist){
+
+        dist[src] = 0;
+
+        while(!topo.empty()){
+            int top = topo.top();
+            topo.pop();
+
+            if(dist[top] != INT_MAX){
+                for(auto i: adjList[top]){
+                    if(dist[top] + i.second < dist[i.first]){
+                        dist[i.first] = dist[top] + i.second;
+                    }
+                }
+            }
+
+
+    }
+    }
 };
 
 int main() {
@@ -59,35 +77,34 @@ int main() {
     g.printAdj();
 
     //ab topological sort ko print karao
-    int n 6;
+    int n = 6;
 
     unordered_map<int,bool> visited;
     stack<int> topaSort;
+
     for(int i=0; i<n; i++){
-        if(!visited(i)){
-            dfs(i,visited,topaSort);
+        if(!visited[i]){
+            g.dfs(i,visited,topaSort);
         }
     }
 
     int src = 1;
 
-    //ab distamce vale array ko int max se initialize karo
+    //ab distance vale array ko int max se initialize karo
     vector<int> dist(n);
 
-    for(int i=0 i<n; i++){
+    for(int i=0; i<n; i++){
         dist[i] = INT_MAX;
     }
 
-    dist[src] = 0;
+    g.getShortestPath(src,topaSort,dist);
 
-    while(!topaSort.empty()){
-        int top = topaSort.top();
-        topaSort.pop();
-
-        if(dist)
-
-
+    for(int i=0; i<n; i++){
+        cout << dist[i] << " ";
     }
+
 
     return 0;
 }
+
+//TC and SC: O(N+E)

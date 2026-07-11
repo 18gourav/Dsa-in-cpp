@@ -46,9 +46,9 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
   return 0;
 }
 
-//###########################
+//#########################################
 //This is the approach using BFS(kanh algo)
-//###########################
+//#########################################
 
 #include<list>
 #include<queue>

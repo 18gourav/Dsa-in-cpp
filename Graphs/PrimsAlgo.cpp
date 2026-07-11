@@ -89,6 +89,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
 
 //TC : O(n^2)
 
+
 //ye vala sol optimal hai kyuki jo upar hum log key mai sa O(n) ma min laga raha tha vo isma O(1) ma hogo
 #include <bits/stdc++.h> 
 vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pair<int, int>, int>> &g)

@@ -78,3 +78,6 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 	return count;
 
 }
+
+// TC: O(V+E)
+// SC: O(V)

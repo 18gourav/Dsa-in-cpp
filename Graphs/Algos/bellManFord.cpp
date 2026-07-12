@@ -42,3 +42,5 @@ vector<int> bellmonFord(int n, int m, int src, vector<vector<int>> &edges) {
 
     
 }
+
+//TC: O(n*m)

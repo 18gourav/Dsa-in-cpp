@@ -183,8 +183,14 @@ node* deleteFromBst(node* root,int val){
 
         //2 child
         if(root->left != NULL && root->right != NULL){
+            //now find max value in left subtree to maintain BST property
+            //how this maintain this> -> if a value is max in left subtree then it is greater than all left elem and smaller than all right 
             int maxi = maxValue(root->left)->data;
+
+            //now copy this value into root node
             root->data = maxi;
+
+            //now with that same value two node exist delete one node
             root->left = deleteFromBst(root->left,maxi);
             return root;
         }
